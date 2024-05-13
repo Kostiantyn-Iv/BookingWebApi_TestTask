@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingWebApi", "BookingWebApi\BookingWebApi.csproj", "{A243413A-2FB6-4AD7-8747-713588A67F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{69913C48-EC6A-46C8-935B-483D9BA5CAFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{229EEE7D-5BFA-4383-9BE8-80B1BB0A5EB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A243413A-2FB6-4AD7-8747-713588A67F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A243413A-2FB6-4AD7-8747-713588A67F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A243413A-2FB6-4AD7-8747-713588A67F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A243413A-2FB6-4AD7-8747-713588A67F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69913C48-EC6A-46C8-935B-483D9BA5CAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69913C48-EC6A-46C8-935B-483D9BA5CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69913C48-EC6A-46C8-935B-483D9BA5CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69913C48-EC6A-46C8-935B-483D9BA5CAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229EEE7D-5BFA-4383-9BE8-80B1BB0A5EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229EEE7D-5BFA-4383-9BE8-80B1BB0A5EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229EEE7D-5BFA-4383-9BE8-80B1BB0A5EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229EEE7D-5BFA-4383-9BE8-80B1BB0A5EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEC42B7F-50FC-48E5-8F1D-6416281F3F39}
+	EndGlobalSection
+EndGlobal
