@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20240513090620_init")]
+    [Migration("20240514071256_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -95,6 +95,7 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
+                        .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");

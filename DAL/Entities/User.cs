@@ -7,7 +7,7 @@ namespace DAL.Entities
 
         public required string Name { get; set; }
 
-        public string? Surname { get; set; }
+        public required string Surname { get; set; }
 
         public required string Email { get; set; }
 

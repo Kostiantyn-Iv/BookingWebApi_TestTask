@@ -29,7 +29,7 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(40)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(20)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(20)", nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(40)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(15)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(40)", nullable: false),

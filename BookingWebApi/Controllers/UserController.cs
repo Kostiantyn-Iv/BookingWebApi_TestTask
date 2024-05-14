@@ -30,9 +30,9 @@ namespace BookingWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAllRooms()
         {
-            var hotelModels = await _service.GetAllAsync().ConfigureAwait(false);
+            var userModels = await _service.GetAllAsync().ConfigureAwait(false);
 
-            return Ok(hotelModels);
+            return Ok(userModels);
         }
 
         [HttpDelete("remove/{key}")]
@@ -57,6 +57,21 @@ namespace BookingWebApi.Controllers
 
             await _service.UpdateAsync(userModel).ConfigureAwait(false);
             return Ok(model);
+        }
+
+        [HttpGet("hotel/{hotelid}")]
+        public async Task<ActionResult> ByHotelId(string hotelid)
+        {
+            var userModels = await _service.GetUsersByHotelId(hotelid).ConfigureAwait(false);
+            return Ok(userModels);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetUser(string id)
+        {
+            UserModel user = await _service.GetByKeyAsync(id).ConfigureAwait(false);
+
+            return Ok(user);
         }
     }
 }

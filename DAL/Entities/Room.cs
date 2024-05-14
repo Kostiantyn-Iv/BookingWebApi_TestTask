@@ -8,7 +8,7 @@
 
         public int Cup {  get; set; }
 
-        public string? HotelId { get; set; }
+        public required string HotelId { get; set; }
 
         public string? UserId { get; set; }
 

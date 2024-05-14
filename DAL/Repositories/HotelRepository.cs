@@ -17,5 +17,10 @@ namespace DAL.Repositories
         {
             return await _dbSet.Include(c => c.Rooms).ToListAsync();
         }
+
+        public override async Task<Hotel?> GetByKeyAsync(string key)
+        {
+            return await _dbSet.Include(c => c.Rooms).FirstOrDefaultAsync(c => c.Id == key).ConfigureAwait(false);
+        }
     }
 }

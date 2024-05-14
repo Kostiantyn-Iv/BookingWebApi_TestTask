@@ -5,7 +5,7 @@
     {
         public Task<IEnumerable<TModel>> GetAllAsync();
 
-        public Task<TModel?> GetByKeyAsync(string key);
+        public Task<TModel> GetByKeyAsync(string key);
 
         public Task AddAsync(TModel entity);
 

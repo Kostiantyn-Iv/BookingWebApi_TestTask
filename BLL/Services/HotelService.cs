@@ -41,7 +41,7 @@ namespace BLL.Services
             return hotelModels;
         }
 
-        public async Task<HotelModel?> GetByKeyAsync(string key)
+        public async Task<HotelModel> GetByKeyAsync(string key)
         {
             Hotel hotel = await _unitOfWork.HotelRepository.GetByKeyAsync(key).ConfigureAwait(false)
                 ?? throw new NotFoundException($"Hotel with key: ({key}) are not exist");

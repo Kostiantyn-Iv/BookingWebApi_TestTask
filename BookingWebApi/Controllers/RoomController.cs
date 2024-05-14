@@ -55,7 +55,7 @@ namespace BookingWebApi.Controllers
             return Ok(model);
         }
 
-        [HttpPut("{roomId}/Reserve/user/{userId}")]
+        [HttpPut("{roomId}/user/{userId}/reserve")]
         public async Task<ActionResult> ReserveRoom(string roomId, string userId)
         {
             await _service.RoomReservation(userId, roomId).ConfigureAwait(false);
@@ -67,6 +67,23 @@ namespace BookingWebApi.Controllers
         {
             await _service.RoomRelease(roomId).ConfigureAwait(false);
             return Ok();
+        }
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetRoom(string id)
+        {
+            RoomModel room = await _service.GetByKeyAsync(id).ConfigureAwait(false);
+
+            return Ok(room);
+        }
+
+        [HttpGet("by/filter")]
+        public async Task<ActionResult> GetRoomsByFilter([FromQuery] RoomFilterVievModel model)
+        {
+            IEnumerable<RoomModel> rooms = await _service.GetRoomByFilterAsync(model.City, model.NumOfBeds).ConfigureAwait(false);
+
+            return Ok(rooms);
         }
 
     }

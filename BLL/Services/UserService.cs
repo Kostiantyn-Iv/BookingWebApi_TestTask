@@ -4,6 +4,7 @@ using BLL.Exceptions;
 using BLL.Models;
 using DAL.Abstractions;
 using DAL.Entities;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BLL.Services
@@ -43,7 +44,7 @@ namespace BLL.Services
             return usersModels;
         }
 
-        public async Task<UserModel?> GetByKeyAsync(string key)
+        public async Task<UserModel> GetByKeyAsync(string key)
         {
             User user = await _unitOfWork.UserReposytory.GetByKeyAsync(key).ConfigureAwait(false)
                 ?? throw new NotFoundException($"User with key: ({key}) are not exist");
@@ -53,9 +54,14 @@ namespace BLL.Services
             return userModel;
         }
 
-        public Task<IEnumerable<UserModel>> GetUsersByHotelId(string hotelId)
+        public async Task<IEnumerable<UserModel>> GetUsersByHotelId(string hotelId)
         {
-            throw new NotImplementedException();
+            Hotel hotel = await _unitOfWork.HotelRepository.GetByKeyAsync(hotelId).ConfigureAwait(false)
+                ?? throw new NotFoundException($"Hotel with key: ({hotelId}) are not exist");
+
+            var ans = await _unitOfWork.UserReposytory.GetUsersByHotelId(hotel.Id);
+
+            return _mapper.Map<IEnumerable<UserModel>>(ans);
         }
 
         public async Task UpdateAsync(UserModel entity)
@@ -63,7 +69,7 @@ namespace BLL.Services
             User user = await _unitOfWork.UserReposytory.GetByKeyAsync(entity.Id!).ConfigureAwait(false)
                 ?? throw new NotFoundException($"User with key: ({entity.Id!}) are not exist");
 
-            user.Surname = entity.Surname;
+            user.Surname = entity.Surname!;
             user.Name = entity.Name!;
             user.PhoneNumber = entity.PhoneNumber;
             user.Email = entity.Email!;

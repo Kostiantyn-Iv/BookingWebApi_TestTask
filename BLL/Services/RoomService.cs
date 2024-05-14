@@ -46,7 +46,7 @@ namespace BLL.Services
             return roomsModels;
         }
 
-        public async Task<RoomModel?> GetByKeyAsync(string key)
+        public async Task<RoomModel> GetByKeyAsync(string key)
         {
             Room room = await _unitOfWork.RoomRepository.GetByKeyAsync(key).ConfigureAwait(false)
                 ?? throw new NotFoundException($"Room with key: ({key}) are not exist");
@@ -110,6 +110,15 @@ namespace BLL.Services
 
             _unitOfWork.RoomRepository.Update(room);
             await _unitOfWork.SaveAsync().ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<RoomModel>> GetRoomByFilterAsync(string city, int numOfBeds)
+        {
+            IEnumerable<Room> rooms = await _unitOfWork.RoomRepository.GetRoomByFilterAsync(city, numOfBeds).ConfigureAwait(false);
+
+            IEnumerable<RoomModel> roomModels = _mapper.Map<IEnumerable<RoomModel>>(rooms);
+
+            return roomModels;
         }
     }
 }

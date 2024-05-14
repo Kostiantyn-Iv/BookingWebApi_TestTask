@@ -53,5 +53,12 @@ namespace BookingWebApi.Controllers
             return Ok(model);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetHotel(string id)
+        {
+            HotelModel hotel = await _service.GetByKeyAsync(id).ConfigureAwait(false);
+
+            return Ok(hotel);
+        }
     }
 }

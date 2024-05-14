@@ -7,5 +7,7 @@ namespace BLL.Abstraction
         public Task RoomReservation(string userId, string roomId);
 
         public Task RoomRelease(string roomId);
+
+        public Task<IEnumerable<RoomModel>> GetRoomByFilterAsync(string city, int numOfBeds);
     }
 }
