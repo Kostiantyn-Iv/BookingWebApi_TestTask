@@ -15,6 +15,8 @@ namespace DAL.Data
         public UnitOfWork(BookingDbContext dbContext)
         {
             _dbContext = dbContext;
+
+            // Initializes a Lazy instance for the Repository, ensuring lazy instantiation and thread safety.
             _hotelRepositoryLazy = new Lazy<IHotelRepository>(() => new HotelRepository(dbContext), LazyThreadSafetyMode.PublicationOnly);
             _roomRepositoryLazy = new Lazy<IRoomRepository>(() => new RoomRepository(dbContext), LazyThreadSafetyMode.PublicationOnly);
             _userReposytoryLazy = new Lazy<IUserReposytory>(() => new UserRepository(dbContext), LazyThreadSafetyMode.PublicationOnly);

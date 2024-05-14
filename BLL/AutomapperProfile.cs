@@ -4,6 +4,7 @@ using DAL.Entities;
 
 namespace BLL
 {
+    // Library for more comfortable model conversion
     public sealed class AutomapperProfile : Profile
     {
         public AutomapperProfile()

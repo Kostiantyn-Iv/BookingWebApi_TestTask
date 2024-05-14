@@ -4,12 +4,10 @@ using BLL.Exceptions;
 using BLL.Models;
 using DAL.Abstractions;
 using DAL.Entities;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BLL.Services
 {
-    public class UserService(IUnitOfWork unitOfWork, IMapper mapper) : IUserService
+    public sealed class UserService(IUnitOfWork unitOfWork, IMapper mapper) : IUserService
     {
         private readonly IMapper _mapper = mapper;
 

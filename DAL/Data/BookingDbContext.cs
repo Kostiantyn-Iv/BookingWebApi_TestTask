@@ -17,15 +17,12 @@ namespace DAL.Data
 
         public DbSet<Room> Rooms { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseExceptionProcessor();
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // declaration of a specific model configuration to ensure the accuracy of the generated database
             modelBuilder.Entity<Hotel>(entity =>
             {
+                // Defoult DeleteBehavior = Cascade
                 entity.HasMany(g => g.Rooms)
                 .WithOne(g => g.Hotel)
                 .HasForeignKey(g => g.HotelId)

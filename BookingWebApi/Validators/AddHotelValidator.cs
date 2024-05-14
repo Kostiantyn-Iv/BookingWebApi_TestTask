@@ -7,6 +7,11 @@ namespace BookingWebApi.Validators
     {
         public AddHotelValidator() 
         {
+            // Configures a validation rule for the Name property:
+            // - NotEmpty: Ensures the Name property is not empty.
+            // - WithMessage: Specifies a custom error message when the property is empty.
+            // - NotNull: Ensures the Name property is not null.
+            // - MaximumLength: Sets the maximum length allowed for the Name property.
             RuleFor(x => x.Name)
                 .NotEmpty()
                 .WithMessage($"Incoming entity has an empty Name property, Name is required")

@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+// declare api input validation by using Fluent Validators
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<AddHotelValidator>();
 
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<BookingDbContext>(option =>
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// declare Automapper for easier conversion models
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IHotelService, HotelService>();
@@ -38,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// declare ExceptionHandler to catch custom exceptions
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();

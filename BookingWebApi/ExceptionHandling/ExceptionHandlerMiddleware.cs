@@ -14,6 +14,7 @@ namespace BookingWebApi.ExceptionHandling
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
+            // realization custom output messages wen catch specific exception
             try
             {
                 await _delegate(httpContext);

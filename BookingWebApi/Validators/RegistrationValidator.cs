@@ -7,6 +7,8 @@ namespace BookingWebApi.Validators
     {
         public RegistrationValidator() 
         {
+            // - Matches: Ensures thet property matches the specified regular expression pattern, allowing only letters.
+
             RuleFor(c => c.Email)
                 .NotEmpty()
                 .WithMessage($"Incoming entity has an empty Email property, Email is required")

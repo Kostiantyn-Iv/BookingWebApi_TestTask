@@ -7,6 +7,9 @@ namespace BookingWebApi.Validators
     {
         public AddRoomValidator() 
         {
+            // Configures a validation rule for the Cupacity property:
+            // - InclusiveBetween: Ensures the Cupacity property is between the specified range (1 to 10).
+
             RuleFor(x => x.HotelId)
                 .NotEmpty()
                 .WithMessage($"Incoming entity has an empty HotelId property, HotelId is required")
